@@ -21,9 +21,9 @@ namespace Nemiro\Collections
 	/**
 	 * Represents a collection of associated String keys and String values that can be accessed either with the key or with the index.
 	 * 
-	 * @author			Aleksey Nemiro <aleksey@nemiro.ru>
-	 * @copyright		© Aleksey Nemiro, 2015. All rights reserved.
-	 * @version			1.0 (2015-10-26) / PHP 5 >= 5.0
+	 * @author      Aleksey Nemiro <aleksey@nemiro.ru>
+	 * @copyright   © Aleksey Nemiro, 2015. All rights reserved.
+	 * @version     1.0 (2015-10-26) / PHP 5 >= 5.0
 	 */
 	class NameValueCollection implements \ArrayAccess
 	{

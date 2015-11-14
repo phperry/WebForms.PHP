@@ -21,9 +21,9 @@ namespace Nemiro\Collections
 	/**
 	 * Represents a universal collection.
 	 * 
-	 * @author			Aleksey Nemiro <aleksey@nemiro.ru>
-	 * @copyright		© Aleksey Nemiro, 2015. All rights reserved.
-	 * @version			1.0 (2015-10-20) / PHP 5 >= 5.0
+	 * @author      Aleksey Nemiro <aleksey@nemiro.ru>
+	 * @copyright   © Aleksey Nemiro, 2015. All rights reserved.
+	 * @version     1.0 (2015-10-20) / PHP 5 >= 5.0
 	 */
 	class Collection implements \ArrayAccess
 	{

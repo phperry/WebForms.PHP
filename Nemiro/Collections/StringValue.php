@@ -21,8 +21,8 @@ namespace Nemiro\Collections
 	/**
 	 * Represents a string value that can contain an array of data.
 	 * 
-	 * @author			Aleksey Nemiro <aleksey@nemiro.ru>
-	 * @copyright		© Aleksey Nemiro, 2015. All rights reserved.
+	 * @author      Aleksey Nemiro <aleksey@nemiro.ru>
+	 * @copyright   © Aleksey Nemiro, 2015. All rights reserved.
 	 */
 	class StringValue
 	{
