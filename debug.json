@@ -1,0 +1,8 @@
+[
+	{ "Key": "PageTitle", "Value": "Debug" },
+	{ "Key": "HeaderTitle", "Value": "Debug" },
+	{ "Key": "HeaderDescription", "Value": "" },
+	{ "Key": "DebugText1", "Value": "Use server-side implementation class <strong>console</strong> to output in the client console debugging information, counters of time and the results of testing." },
+	{ "Key": "DebugText2", "Value": "Note that the <code>Console</code> only works in the debug mode: <code>define('DEBUG_MODE', true);</code>." },
+	{ "Key": "DebugText3", "Value": "Click on your browser the key combination <strong>Ctrl + Shift + I</strong> (for <strong>IE</strong> is <strong>F12</strong>), to bring up the console." }
+]

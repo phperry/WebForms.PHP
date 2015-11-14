@@ -1,0 +1,165 @@
+﻿.navbar {
+	margin-bottom: 0;
+}
+
+.copyright {
+	padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  color: #767676;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+.jumbotron {
+	background-color: #4f5b93;
+	color: #ffffff;
+}
+
+.btn-download {
+	color: #ffffff;
+	background-color: transparent;
+	border-color: #ffffff;
+	padding: 10px 16px;
+	line-height: 1.3333333;
+  border-radius: 6px;
+	text-decoration: none;
+}
+
+.btn-download:hover, .btn-download:active,.btn-download:focus {
+	color:#4f5b93;
+	background-color:#ffffff;
+	border-color: #ffffff;
+}
+
+.step-num {
+  display: inline-block;
+  min-width: 20px;
+  padding: 10px 17px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  color: #333333;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #f0ad4e;
+  border-radius: 24px;
+}
+
+/* highlight */
+.jumbotron pre {
+	border: 1px solid #485386;
+	background-color: #55629f;
+}
+
+.jumbotron code {
+	background: #858ebc;
+	color: #ffffff;
+}
+
+.jumbotron .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #858ebc;
+  -webkit-text-size-adjust: none;
+}
+
+.jumbotron .hljs,
+.jumbotron .hljs-subst,
+.jumbotron .hljs-tag .hljs-title,
+.jumbotron .nginx .hljs-title {
+  color: #111111;
+}
+
+.jumbotron .hljs-string,
+.jumbotron .hljs-title,
+.jumbotron .hljs-constant,
+.jumbotron .hljs-parent,
+.jumbotron .hljs-tag .hljs-value,
+.jumbotron .hljs-rule .hljs-value,
+.jumbotron .hljs-preprocessor,
+.jumbotron .hljs-pragma,
+.jumbotron .hljs-name,
+.jumbotron .haml .hljs-symbol,
+.jumbotron .ruby .hljs-symbol,
+.jumbotron .ruby .hljs-symbol .hljs-string,
+.jumbotron .hljs-template_tag,
+.jumbotron .django .hljs-variable,
+.jumbotron .smalltalk .hljs-class,
+.jumbotron .hljs-addition,
+.jumbotron .hljs-flow,
+.jumbotron .hljs-stream,
+.jumbotron .bash .hljs-variable,
+.jumbotron .pf .hljs-variable,
+.jumbotron .apache .hljs-tag,
+.jumbotron .apache .hljs-cbracket,
+.jumbotron .tex .hljs-command,
+.jumbotron .tex .hljs-special,
+.jumbotron .erlang_repl .hljs-function_or_atom,
+.jumbotron .asciidoc .hljs-header,
+.jumbotron .markdown .hljs-header,
+.jumbotron .coffeescript .hljs-attribute,
+.jumbotron .tp .hljs-variable {
+  color: #800040;
+}
+
+.jumbotron .smartquote,
+.jumbotron .hljs-comment,
+.jumbotron .hljs-annotation,
+.jumbotron .diff .hljs-header,
+.jumbotron .hljs-chunk,
+.jumbotron .asciidoc .hljs-blockquote,
+.jumbotron .markdown .hljs-blockquote {
+  color: #424b79;
+}
+
+.jumbotron .hljs-number,
+.jumbotron .hljs-date,
+.jumbotron .hljs-regexp,
+.jumbotron .hljs-literal,
+.jumbotron .hljs-hexcolor,
+.jumbotron .smalltalk .hljs-symbol,
+.jumbotron .smalltalk .hljs-char,
+.jumbotron .go .hljs-constant,
+.jumbotron .hljs-change,
+.jumbotron .lasso .hljs-variable,
+.jumbotron .makefile .hljs-variable,
+.jumbotron .asciidoc .hljs-bullet,
+.jumbotron .markdown .hljs-bullet,
+.jumbotron .asciidoc .hljs-link_url,
+.jumbotron .markdown .hljs-link_url {
+  color: #424b79;
+}
+
+.jumbotron .hljs-label,
+.jumbotron .ruby .hljs-string,
+.jumbotron .hljs-decorator,
+.jumbotron .hljs-filter .hljs-argument,
+.jumbotron .hljs-localvars,
+.jumbotron .hljs-array,
+.jumbotron .hljs-attr_selector,
+.jumbotron .hljs-important,
+.jumbotron .hljs-pseudo,
+.jumbotron .hljs-pi,
+.jumbotron .haml .hljs-bullet,
+.jumbotron .hljs-doctype,
+.jumbotron .hljs-deletion,
+.jumbotron .hljs-envvar,
+.jumbotron .hljs-shebang,
+.jumbotron .apache .hljs-sqbracket,
+.jumbotron .nginx .hljs-built_in,
+.jumbotron .tex .hljs-formula,
+.jumbotron .erlang_repl .hljs-reserved,
+.jumbotron .hljs-prompt,
+.jumbotron .asciidoc .hljs-link_label,
+.jumbotron .markdown .hljs-link_label,
+.jumbotron .vhdl .hljs-attribute,
+.jumbotron .clojure .hljs-attribute,
+.jumbotron .asciidoc .hljs-attribute,
+.jumbotron .lasso .hljs-attribute,
+.jumbotron .coffeescript .hljs-property,
+.jumbotron .hljs-phony {
+  color: #424b79;
+}

@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Nemiro.WebForms.PHP</Name>
+    <ProjectGuid>1f5701ac-3d39-4fde-8244-90504030a5c7</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Nemiro.WebForms.PHP</RootNamespace>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <AssemblyName>Nemiro.WebForms.PHP</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="controls.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>controls.php</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>Controls\Header.php</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header.php" />
+    <Compile Include="Controls\Message.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>Controls\Message.php</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Panel.php" />
+    <Compile Include="Controls\TabControl.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>Controls\TabControl.php</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabControl.php" />
+    <Compile Include="Controls\Message.php" />
+    <Compile Include="Controls\TabItem.php">
+      <SubType>Code</SubType>
+      <DependentUpon>Controls\TabControl.php</DependentUpon>
+    </Compile>
+    <Compile Include="debug.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>debug.php</DependentUpon>
+    </Compile>
+    <Compile Include="debug.php" />
+    <Compile Include="elements.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>elements.php</DependentUpon>
+    </Compile>
+    <Compile Include="elements.php" />
+    <Compile Include="controls.php" />
+    <Compile Include="index.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>index.php</DependentUpon>
+    </Compile>
+    <Compile Include="localization.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>localization.php</DependentUpon>
+    </Compile>
+    <Compile Include="localization.php" />
+    <Compile Include="Nemiro\Console.php" />
+    <Compile Include="pages.php" />
+    <Compile Include="pages.html.php">
+      <DependentUpon>pages.php</DependentUpon>
+    </Compile>
+    <Compile Include="pages.html.php" />
+    <Compile Include="templates.html.php">
+      <SubType>Code</SubType>
+      <DependentUpon>templates.php</DependentUpon>
+    </Compile>
+    <Compile Include="templates.php" />
+    <Compile Include="Layouts\RightMenu.php" />
+    <Compile Include="Layouts\_LayoutNoContainer.php" />
+    <Compile Include="simple.php" />
+    <Compile Include="Layouts\Popup.php" />
+    <Compile Include="Nemiro\App.php" />
+    <Compile Include="Nemiro\Collections\Collection.php" />
+    <Compile Include="Nemiro\Collections\Import.php" />
+    <Compile Include="Nemiro\Collections\NameValueCollection.php" />
+    <Compile Include="Nemiro\Collections\StringValue.php" />
+    <Compile Include="Nemiro\config.sample.php" />
+    <Compile Include="Nemiro\global.sample.php" />
+    <Compile Include="Nemiro\Server.php" />
+    <Compile Include="Nemiro\Text.php" />
+    <Compile Include="Nemiro\UI\Control.php" />
+    <Compile Include="Nemiro\UI\Html.php" />
+    <Compile Include="Nemiro\UI\Import.php" />
+    <Compile Include="Nemiro\UI\Page.php" />
+    <Compile Include="config.php" />
+    <Compile Include="Controls\Footer.php" />
+    <Compile Include="global.php" />
+    <Compile Include="index.php" />
+    <Compile Include="Layouts\_Layout.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\images\" />
+    <Folder Include="Nemiro\Collections\" />
+    <Folder Include="Nemiro\" />
+    <Folder Include="Nemiro\UI\" />
+    <Folder Include="Content\" />
+    <Folder Include="Content\css\" />
+    <Folder Include="Content\fonts\" />
+    <Folder Include="Layouts\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\compiled.css" />
+    <Content Include="Content\css\compiled.css.bundle" />
+    <Content Include="Content\css\compiled.min.css" />
+    <Content Include="Content\css\default.css" />
+    <Content Include="Content\css\home.css" />
+    <Content Include="Content\images\console.png" />
+    <Content Include="Content\images\en.png" />
+    <Content Include="Content\images\fileNesting.png" />
+    <Content Include="Content\images\fileNestingResult.png" />
+    <Content Include="Content\images\ru.png" />
+    <Content Include="Content\images\formula.jpg" />
+    <Content Include="Content\images\how.png" />
+    <Content Include="controls.json">
+      <SubType>Content</SubType>
+      <DependentUpon>controls.php</DependentUpon>
+    </Content>
+    <Content Include="controls.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>controls.php</DependentUpon>
+    </Content>
+    <Content Include="debug.json">
+      <SubType>Content</SubType>
+      <DependentUpon>debug.php</DependentUpon>
+    </Content>
+    <Content Include="debug.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>debug.php</DependentUpon>
+    </Content>
+    <Content Include="elements.json">
+      <SubType>Content</SubType>
+      <DependentUpon>elements.php</DependentUpon>
+    </Content>
+    <Content Include="elements.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>elements.php</DependentUpon>
+    </Content>
+    <Content Include="global.json">
+      <SubType>Content</SubType>
+      <DependentUpon>global.php</DependentUpon>
+    </Content>
+    <Content Include="global.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>global.php</DependentUpon>
+    </Content>
+    <Content Include="index.json">
+      <SubType>Content</SubType>
+      <DependentUpon>index.php</DependentUpon>
+    </Content>
+    <Content Include="index.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>index.php</DependentUpon>
+    </Content>
+    <Content Include="LICENSE" />
+    <Content Include="localization.json">
+      <SubType>Content</SubType>
+      <DependentUpon>localization.php</DependentUpon>
+    </Content>
+    <Content Include="localization.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>localization.php</DependentUpon>
+    </Content>
+    <Content Include="pages.json">
+      <SubType>Content</SubType>
+      <DependentUpon>pages.php</DependentUpon>
+    </Content>
+    <Content Include="pages.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>pages.php</DependentUpon>
+    </Content>
+    <Content Include="README.md" />
+    <Content Include="Release Notes.md" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\compiled.js">
+      <SubType>Content</SubType>
+      <DependentUpon>Scripts\compiled.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\compiled.js.bundle" />
+    <Content Include="Scripts\compiled.min.js">
+      <SubType>Content</SubType>
+      <DependentUpon>Scripts\compiled.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\compiled.min.js.map">
+      <SubType>Content</SubType>
+      <DependentUpon>Scripts\compiled.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\highlight.pack.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="simple.json">
+      <SubType>Content</SubType>
+      <DependentUpon>simple.php</DependentUpon>
+    </Content>
+    <Content Include="simple.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>simple.php</DependentUpon>
+    </Content>
+    <Content Include="templates.json">
+      <SubType>Content</SubType>
+      <DependentUpon>templates.php</DependentUpon>
+    </Content>
+    <Content Include="templates.ru.json">
+      <SubType>Content</SubType>
+      <DependentUpon>templates.php</DependentUpon>
+    </Content>
+  </ItemGroup>
+</Project>
