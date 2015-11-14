@@ -1,0 +1,302 @@
+<!--registration controls-->
+
+
+<!--//-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Шаблоны - WebForms.PHP</title>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="Content/css/compiled.min.css" />
+		<script src="Scripts/compiled.min.js" type="text/javascript"></script>
+		<!--block of content "Head"-->
+		
+		<!--//-->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta name="generator" content="PHP WebForms Engine by Aleksey Nemiro // v.3.1 // http://aleksey.nemiro.ru" /><meta name="DESCRIPTION" content="Template engine, HTML components and the beginnings of Framework for web sites creation in PHP." /><meta name="KEYWORDS" content="WebForms, PHP, Documentation, Manual, Guide, Demo" /><meta name="AUTHOR" content="Aleksey Nemiro (VVO-JOK-LED)" /><meta name="ROBOTS" content="ALL" /></head>
+	<body>
+		<!--Header control-->
+		<header id="header">
+	<nav class="navbar navbar-default"> <!-- navbar-fixed-top -->
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a href="index-ru.htm" class="navbar-brand">WebForms.PHP</a>
+			</div>
+			<div id="nav" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index-ru.htm#GettingStarted"><span class="glyphicon glyphicon-save"></span> Быстрый старт</a></li>
+					<li><a href="templates.php-lang=ru.htm"><span class="glyphicon glyphicon-picture"></span> Шаблоны</a></li>
+					<li><a href="pages.php-lang=ru.htm"><span class="glyphicon glyphicon-file"></span> Страницы</a></li>
+					<li><a href="controls.php-lang=ru.htm"><span class="glyphicon glyphicon-cog"></span> Контролы</a></li>
+					<li><a href="elements.php-lang=ru.htm"><span class="glyphicon glyphicon-list-alt"></span> Элементы HTML</a></li>
+					<li><a href="localization.php-lang=ru.htm"><span class="glyphicon glyphicon-globe"></span> Локализация</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="templates.php-lang=ru.htm"><img src="Content/images/ru.png" alt="RU" title="" width="22" height="22" /></a></li>
+					<li><a href="templates.php.htm"><img src="Content/images/en.png" alt="EN" title="" width="22" height="22" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<div class="jumbotron"> <!-- style="padding-top:72px;" -->
+		<div class="container">
+			<h1>Шаблоны</h1>
+			<p>Больше нет необходимости копировать разметку на каждую страницу и мучиться со вставками. В шаблонах контент со страниц автоматически помещается в нужную область. Число блоков контента не ограничено. Если шаблонов несколько, то одинаковые фрагменты можно легко вынести в пользовательские элементы управления.</p>
+		</div>
+	</div>
+	</header>
+		<!--//-->
+
+
+		<div class="container">
+			<!--block of content "MainContent"-->
+							<h2 id="introduction">Введение</h2>
+				<p>Шаблоны - это обычные файлы <strong>HTML</strong> со специальными метками, на месте которых будет размещаться контент.</p>
+				<p>Метки записываются в строгом формате: <code>&lt;php:ИмяМетки/&gt;</code>. Name marker (identifier) should consist of English letters and numbers.</p>
+				<p>В одном шаблоне может быть неограниченное число меток, но как правило достаточно двух-трех.</p>
+
+				<h3 id="contents">Содержание</h3>
+				<ul>
+					<li><a href="#example">Простой пример</a></li>
+					<li><a href="#directives">Директивы</a></li>
+					<li><a href="#localization">Локализация шаблонов</a></li>
+					<li><a href="#php">Серверный код</a></li>
+					<li><a href="#markers">Имена меток блоков контента</a></li>
+				</ul>
+
+				<h2 id="example">Простой пример</h2>
+				<p>В следующем примере показана страница-шаблон, в которой определено две метки: <code>&lt;php:Head/&gt;</code> и <code>&lt;php:MainContent/&gt;</code>.</p>
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width" /&gt;
+    &lt;link rel="stylesheet" href="/Content/css/bootstrap.min.css" /&gt;
+    &lt;script src="/Scripts/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="/Scripts/bootstrap.min.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;php:Head/&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;php:MainContent/&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				<p>Страницы контента могут содержать блоки контента для указанных в шаблоне меток. Для этого используется специальный системный тег: <code>php:Content</code>, который имеет следующий формат записи:</p>
+				<pre><code class="html">&lt;php:Content ID="имяМетки"&gt;
+  Содержимое блока.
+  Допустимо использование любых тэгов, 
+  серверного кода и 
+  элементов управления.
+&lt;/php:Content&gt;</code></pre>
+				<p>Если для какой-то из меток не будет определено содержимое на странице контента, то такая метка будет удалена из итогового <strong>HTML</strong> кода.</p>
+				<p>В следующем примере показан <strong>HTML</strong>-код страницы контента, в которой для метки <code>MainContent</code> устанавливается содержимое <code>&lt;h2&gt;Привет, мир!&lt;/h2&gt;</code>.</p>
+				<pre><code class="html">&lt;php:Content ID="MainContent"&gt;
+  &lt;h2&gt;Привет, мир!&lt;/h2&gt;
+&lt;/php:Content&gt;</code></pre>
+				<p>Результатом выполнения веб-запроса будет страница следующего вида:</p>
+				<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Заголовок по умолчанию&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width" /&gt;
+    &lt;link rel="stylesheet" href="/Content/css/bootstrap.min.css" /&gt;
+    &lt;script src="/Scripts/jquery-1.11.1.min.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="/Scripts/bootstrap.min.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;h2&gt;Привет, мир!&lt;/h2&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+				<h2 id="directives">Директивы</h2>
+				<p>В шаблонах допустимо использование директив <code>&lt;?#Register ?&gt;</code> для регистрации <a href="controls.php-lang=ru.htm">пользовательских элементов управления</a>.</p>
+				<p>Другие директивы не поддерживаются и не будут никаким образом обработаны (останутся в итоговом <strong>HTML</strong>, как есть).</p>
+				<p>В следующем примере показано использование директив в шаблоне. Директива <code>&lt;?#Page ?&gt;</code> будет проигнорирована и останется в результате обработки запроса в исходном виде. Директивы <code>&lt;?#Register ?&gt;</code> будут успешно обработаны.</p>
+				<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl1_Template" aria-controls="Page_TabControl1_Template" role="tab" data-toggle="tab">Шаблон</a></li>
+	<li class=""><a href="#Page_TabControl1_Content" aria-controls="Page_TabControl1_Content" role="tab" data-toggle="tab">Страница контента</a></li>
+	<li class=""><a href="#Page_TabControl1_Result" aria-controls="Page_TabControl1_Result" role="tab" data-toggle="tab">Результат</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl1_Template">							<pre><code class="html">&lt;?#Page Title="Test"?&gt;
+&lt;?#Register Src="~/Controls/Header.php" TagPrefix="php" TagName="Header"?&gt;
+&lt;?#Register Src="~/Controls/Footer.php" TagPrefix="php" TagName="Footer"?&gt;
+&lt;?#Register Src="~/Controls/Message.php" TagPrefix="php" TagName="Message"?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;php:Header ID="Header1" /&gt;
+
+    &lt;div class="container"&gt;
+      &lt;php:Message Type="Info" Content="Это простой пример" /&gt;
+      &lt;hr /&gt;
+      &lt;php:MainContent/&gt;
+    &lt;/div&gt;
+
+    &lt;php:Footer ID="Footer1" /&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+						</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl1_Content">							<pre><code class="html">&lt;php:Content ID="MainContent"&gt;
+  Привет, мир!
+&lt;/php:Content&gt;</code></pre>
+						</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl1_Result">							<pre><code class="html">&lt;!--Директива Page не поддерживается в шаблонах--&gt;
+&lt;?#Page Title="Test"?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Заголовок по умолчанию&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!--Начало вывода элемента Header--&gt;
+    &lt;h1&gt;Test site&lt;/h1&gt;
+    &lt;!--Конец вывода элемента Header--&gt;
+
+    &lt;div class="container"&gt;
+      &lt;!--Начало вывода элемента Message--&gt;
+      &lt;div class="alert alert-info"&gt;Это простой пример&lt;/div&gt;
+      &lt;!--Конец вывода элемента Message--&gt;
+      &lt;hr /&gt;
+      &lt;!--Начало вывода блока контента MainContent--&gt;
+      Привет, мир!
+      &lt;!--Конец вывода блока контента MainContent--&gt;
+    &lt;/div&gt;
+
+    &lt;!--Начало вывода элемента Footer--&gt;
+    &lt;footer&gt;
+      Copyright © Example, 2015. All rights reserved. 
+    &lt;/footer&gt;
+    &lt;!--Конец вывода элементаа Footer--&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+						</div>
+</div>
+
+				<h2 id="localization">Локализация шаблонов</h2>
+				<p>Для локализации шаблонов можно использовать глобальные ресурсы (<strong>global.json</strong>).</p>
+				<p>При локализации следует учитывать, что отдельные ключи могут быть переопределены в локальных ресурсах страниц контента.</p>
+				<p><a href="localization.php-lang=ru.htm">Подробнее о механизмах локализации</a>.</p>
+
+				<h2 id="php">Серверный код</h2>
+				<p>К сожалению, в текущей версии движка, в шаблонах не работает обработка серверных блоков кода. Это в принципе легко исправить, но смысла особого нет, поскольку можно использовать <a href="controls.php-lang=ru.htm">пользовательские элементы управления</a>, в которых подобных ограничений нет.</p>
+				<p>Если вы захотите реализовать поддержку серверного кода в шаблонах, то сделать это можно в классе <code>\Nemiro\UI\Page</code>. Например, в методе: <code>Render</code>, где-нибудь перед обработкой пользовательских элементов управления.</p>
+				<pre><code class="php"># ...
+# add head
+$pattern = '|&lt;head&gt;(.*)&lt;/head&gt;|is';
+$result = preg_replace($pattern, '&lt;head&gt;'.$h.'&lt;/head&gt;', $result);
+
+# обработка блоков серверного кода в шаблоне
+$result = $this->Execute($result);
+
+# controls
+$result = $this-&gt;RanderControl('Template', $result);
+
+# content blocks
+if ($this-&gt;Content != NULL && count($this-&gt;Content) &gt; 0)
+# ...</code></pre>
+				<p>Но учитывайте, что обработка серверного кода потребует выделения дополнительных ресурсов и при высокой нагрузке это может замедлить обработку запросов. Можно пойти дальше и полностью изменить логику обработки серверных блоков, например, сделать это за один раз, перед выдачей итогового результата клиенту; но это потребует более тщательного продумывания логики взаимодействия различных элементов веб-приложения.</p>
+
+				<h2 id="markers">Имена меток блоков контента</h2>
+				<p>Имена меток (идентификаторы меток) должны состоять из букв английского алфавита. Допустимо использование чисел.</p>
+				<div class="alert alert-warning">
+	<span class="glyphicon glyphicon-warning-sign"></span> 	Во избежание конфликтов, имена меток не должны пересекаться с существующими именами пользовательских элементов управления, имеющими префикс <code>php:</code>.</div>
+				<p>Имена меток не проверяются на уникальность. Если в одном шаблоне будет несколько меток с одинаковыми именами и для этих меток будет определен контент, то в итоге для всех копий меток будет установлено одинаковое содержание.</p>
+				<p>В следующем примере показан шаблон с двумя метками <code>&lt;php:MainContent/&gt;</code> и результат выполнения запроса.</p>
+				<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl2_Template" aria-controls="Page_TabControl2_Template" role="tab" data-toggle="tab">Шаблон</a></li>
+	<li class=""><a href="#Page_TabControl2_Content" aria-controls="Page_TabControl2_Content" role="tab" data-toggle="tab">Страница контента</a></li>
+	<li class=""><a href="#Page_TabControl2_Result" aria-controls="Page_TabControl2_Result" role="tab" data-toggle="tab">Результат</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl2_Template">							<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;php:MainContent/&gt;
+      &lt;br /&gt;
+      &lt;php:MainContent/&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+						</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl2_Content">							<pre><code class="html">&lt;php:Content ID="MainContent"&gt;
+  Привет!
+&lt;/php:Content&gt;</code></pre>
+						</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl2_Result">							<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Заголовок по умолчанию&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      Привет!
+      &lt;br /&gt;
+      Привет!
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+						</div>
+</div>
+		
+			<!--//-->
+		</div>
+
+		<!--Footer control-->
+		<footer class="text-center small">
+	<hr />
+	<!--a class="github-button" href="https://github.com/alekseynemiro" data-style="mega" data-count-href="/alekseynemiro/followers" data-count-api="/users/alekseynemiro#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @alekseynemiro on GitHub">Follow @alekseynemiro</a-->
+	<a class="github-button" href="https://github.com/alekseynemiro/WebForms.PHP" data-icon="octicon-star" data-style="mega" data-count-href="/alekseynemiro/WebForms.PHP/stargazers" data-count-api="/repos/alekseynemiro/WebForms.PHP#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alekseynemiro/WebForms.PHP on GitHub">Star</a>
+	<a class="github-button" href="https://github.com/alekseynemiro/WebForms.PHP/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/alekseynemiro/WebForms.PHP/network" data-count-api="/repos/alekseynemiro/WebForms.PHP#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork alekseynemiro/WebForms.PHP on GitHub">Fork</a>
+	<a class="github-button" href="https://github.com/alekseynemiro/WebForms.PHP/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download alekseynemiro/WebForms.PHP on GitHub">Download</a>
+	<br /><br />
+	Code licensed under <a rel="license" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>, documentation under <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a><br />
+	Copyright © Aleksey Nemiro, 2015. All rights reserved.
+	<br /><br />
+</footer>
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('pre code').each(function (i, block) {
+			hljs.highlightBlock(block);
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+		m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-4793481-9', 'auto');
+	ga('send', 'pageview');
+
+</script>
+		<!--//-->
+	</body>
+</html>

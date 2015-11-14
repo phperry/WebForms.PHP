@@ -1,0 +1,605 @@
+<!--registration controls-->
+
+
+<!--//-->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>HTML controls generation - WebForms.PHP</title>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" href="Content/css/compiled.min.css" />
+		<script src="Scripts/compiled.min.js" type="text/javascript"></script>
+		<!--block of content "Head"-->
+		
+		<!--//-->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta name="generator" content="PHP WebForms Engine by Aleksey Nemiro // v.3.1 // http://aleksey.nemiro.ru" /><meta name="DESCRIPTION" content="Template engine, HTML components and the beginnings of Framework for web sites creation in PHP." /><meta name="KEYWORDS" content="WebForms, PHP, Documentation, Manual, Guide, Demo" /><meta name="AUTHOR" content="Aleksey Nemiro (VVO-JOK-LED)" /><meta name="ROBOTS" content="ALL" /></head>
+	<body>
+		<!--Header control-->
+		<header id="header">
+	<nav class="navbar navbar-default"> <!-- navbar-fixed-top -->
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a href="index.htm" class="navbar-brand">WebForms.PHP</a>
+			</div>
+			<div id="nav" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="index.htm#GettingStarted"><span class="glyphicon glyphicon-save"></span> Getting started</a></li>
+					<li><a href="templates.php.htm"><span class="glyphicon glyphicon-picture"></span> Templates</a></li>
+					<li><a href="pages.php.htm"><span class="glyphicon glyphicon-file"></span> Pages</a></li>
+					<li><a href="controls.php.htm"><span class="glyphicon glyphicon-cog"></span> User Controls</a></li>
+					<li><a href="elements.php.htm"><span class="glyphicon glyphicon-list-alt"></span> HTML Controls</a></li>
+					<li><a href="localization.php.htm"><span class="glyphicon glyphicon-globe"></span> Localization</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="elements.php-lang=ru.htm"><img src="Content/images/ru.png" alt="RU" title="" width="22" height="22" /></a></li>
+					<li><a href="elements.php.htm"><img src="Content/images/en.png" alt="EN" title="" width="22" height="22" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+		<div class="jumbotron"> <!-- style="padding-top:72px;" -->
+		<div class="container">
+			<h1>HTML controls generation</h1>
+			<p>Generating standard form controls with saving the state of the elements after the form is submitted.</p>
+		</div>
+	</div>
+	</header>
+		<!--//-->
+
+		<div class="container">
+			<div class="col-md-10">
+				<!--block of content "MainContent"-->
+							<h2>Introduction</h2>
+			<p>Static class <code>Nemiro\UI\Html</code> can generate some controls <strong>HTML</strong>.</p>
+			<p>Almost every method in addition to the standard parameters, accepts parameter <code>$htmlAttributes</code>, which can be enumerated a list of additional html-attributes. For example:</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl1_PHP" aria-controls="Page_TabControl1_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl1_HTML" aria-controls="Page_TabControl1_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl1_Design" aria-controls="Page_TabControl1_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl1_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::TextBox('username', NULL, array('maxlength' => '20', 'class' => 'form-control', 'placeholder' => 'Input your name'))?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl1_HTML">						<pre><code class="html">&lt;input type="text" name="username" id="username" maxlength="20" class="form-control" placeholder="Input your name"&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl1_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input maxlength="20" class="form-control" placeholder="Input your name" type="text" name="username" id="username" />							</div>
+						</div>
+					</div>
+</div>			<p id="form">When submitting a form, all of these values are automatically restored. There is no need to restore the values manually.</p>
+			<div class="panel panel-default">
+				<div class="panel-heading">Form example</div>
+				<div class="panel-body">
+					<p>Fill out the form and send. After reloading the page, the form values are automatically restored (only for <strong>PHP</strong> version).</p>
+					<form class="form-horizontal" method="post" action="#form">
+						<div class="form-group">
+							<label for="fe_TextBox" class="col-sm-2 control-label">TextBox</label>							<div class="col-sm-10">
+								<input class="form-control" placeholder="Type something here" type="text" name="fe_TextBox" id="fe_TextBox" />							</div>
+						</div>
+						<div class="form-group">
+							<label for="fe_TextArea" class="col-sm-2 control-label">TextArea</label>							<div class="col-sm-10">
+								<textarea name="fe_TextArea" id="fe_TextArea" rows="5"class="form-control" placeholder="Type something here" class="form-control" placeholder="Type something here"></textarea>							</div>
+						</div>
+						<div class="form-group">
+							<label for="fe_DropDownList" class="col-sm-2 control-label">DropDownList</label>							<div class="col-sm-10">
+								<select name="fe_DropDownList" id="fe_DropDownList"><option >One</option><option value="1">Two</option><option value="2">Three</option></select>							</div>
+						</div>
+						<div class="form-group">
+							<label for="fe_ListBox" class="col-sm-2 control-label">ListBox</label>							<div class="col-sm-10">
+								<select name="fe_ListBox" id="fe_ListBox" size="5"><option >One</option><option value="1">Two</option><option value="2">Five minus two</option></select>							</div>
+						</div>
+						<div class="form-group">
+						 <div class="col-sm-offset-2 col-sm-10">
+								<label>
+									<input type="checkbox" name="fe_CheckBox" id="fe_CheckBox" value="true" /> Single CheckBox
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+						 <div class="col-sm-offset-2 col-sm-10">
+								<label>List of CheckBox:</label><br />
+								<input type="checkbox" name="fe_CheckboxList[]" id="fe_CheckboxList0" value="one" /> <label for="fe_CheckboxList0">Item 1</label><br /><input type="checkbox" name="fe_CheckboxList[]" id="fe_CheckboxList1" value="two" /> <label for="fe_CheckboxList1">Item 2</label><br /><input type="checkbox" name="fe_CheckboxList[]" id="fe_CheckboxList2" value="one+two" /> <label for="fe_CheckboxList2">Item 3</label>							</div>
+						</div>
+						<div class="form-group">
+						 <div class="col-sm-offset-2 col-sm-10">
+								<label>List of single RadioButton:</label><br />
+								<input type="radio" name="fe_RadioButton" id="fe_RadioButton1" value="true" />								<label for="fe_RadioButton1">[ 1 ]</label>								<input type="radio" name="fe_RadioButton" id="fe_RadioButton2" value="true" />								<label for="fe_RadioButton2">[ 2 ]</label>								<input type="radio" name="fe_RadioButton" id="fe_RadioButton3" value="true" />								<label for="fe_RadioButton3">[ 3 ]</label>							</div>
+						</div>
+						<div class="form-group">
+						 <div class="col-sm-offset-2 col-sm-10">
+								<label>List of RadioButton:</label><br />
+								<input type="radio" name="fe_RadioList[]" id="fe_RadioList0" value="abc" /> <label for="fe_RadioList0">A</label><br /><input type="radio" name="fe_RadioList[]" id="fe_RadioList1" value="bcd" /> <label for="fe_RadioList1">B</label><br /><input type="radio" name="fe_RadioList[]" id="fe_RadioList2" value="cde" /> <label for="fe_RadioList2">C</label>							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">Submit!</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<h3 id="Label">Label</h3>
+			<p>When placing the <strong>label</strong>, required parameter is the label text.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl2_PHP" aria-controls="Page_TabControl2_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl2_HTML" aria-controls="Page_TabControl2_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl2_Design" aria-controls="Page_TabControl2_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl2_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::Label('Simple label')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl2_HTML">						<pre><code class="html">&lt;label&gt;Simple label&lt;/label&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl2_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<label>Simple label</label>							</div>
+						</div>
+					</div>
+</div>			<p>If you want to bind a <strong>label</strong> to specified control, it is necessary to set the identifier for the second parameter.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl3_PHP" aria-controls="Page_TabControl3_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl3_HTML" aria-controls="Page_TabControl3_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl3_Design" aria-controls="Page_TabControl3_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl3_PHP">						<pre><code class="php">&lt;input type="checkbox" name="parentId" id="parentId" /&gt; 
+&lt;?=Nemiro\UI\Html::Label('click me', 'parentId')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl3_HTML">						<pre><code class="html">&lt;input type="checkbox" name="parentId" id="parentId" /&gt; 
+&lt;label for="parentId"&gt;click me&lt;/label&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl3_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="checkbox" name="parentId" id="parentId" /> 
+								<label for="parentId">click me</label>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="CheckBox">CheckBox</h3>
+			<p>To place a <strong>CheckBox</strong> must specify name of the element. By the name you can get the value of the element to the server, after submitting the form.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl4_PHP" aria-controls="Page_TabControl4_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl4_HTML" aria-controls="Page_TabControl4_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl4_Design" aria-controls="Page_TabControl4_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl4_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::CheckBox('checkbox1')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl4_HTML">						<pre><code class="html">&lt;input type="checkbox" name="checkbox1" id="checkbox1" value="true" /&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl4_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="checkbox" name="checkbox1" id="checkbox1" value="true" />							</div>
+						</div>
+					</div>
+</div>			<p>The <code>value</code> parameter has a default value is <code>true</code>, but you can override it.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl5_PHP" aria-controls="Page_TabControl5_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl5_HTML" aria-controls="Page_TabControl5_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl5_Design" aria-controls="Page_TabControl5_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl5_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::CheckBox('checkbox1', 'anyvalue')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl5_HTML">						<pre><code class="html">&lt;input type="checkbox" name="checkbox1" id="checkbox1" value="anyvalue" /&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl5_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="checkbox" name="checkbox1" id="checkbox1" value="anyvalue" />							</div>
+						</div>
+					</div>
+</div>
+			<p>With <strong>Label</strong> can be added caption to <strong>CheckBox</strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl6_PHP" aria-controls="Page_TabControl6_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl6_HTML" aria-controls="Page_TabControl6_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl6_Design" aria-controls="Page_TabControl6_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl6_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::Label('click me', 'checkbox123')?&gt;
+&lt;?=Nemiro\UI\Html::CheckBox('checkbox123', 'anyvalue')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl6_HTML">						<pre><code class="html">&lt;label for="checkbox123"&gt;click me&lt;/label&gt;
+&lt;input type="checkbox" name="checkbox123" id="checkbox1" value="anyvalue" /&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl6_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<label for="checkbox123">click me</label>								<input type="checkbox" name="checkbox123" id="checkbox123" value="anyvalue" />							</div>
+						</div>
+					</div>
+</div>			<p>Note the identifier - <code>checkbox123</code>, it is the same for <strong>Label</strong> and <strong>CheckBox</strong>.</p>
+
+			<h3 id="CheckBoxList">CheckBoxList</h3>
+			<p>To create a list of <strong>CheckBox</strong>, can be use the <strong>CheckBoxList</strong> method, which accepts the name of the group and a list of items.</p>
+			<p>The list is an array of elements, each element of which is an associative array containing the <code>value</code> and <code>title</code> of <strong>CheckBox</strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl7_PHP" aria-controls="Page_TabControl7_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl7_HTML" aria-controls="Page_TabControl7_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl7_Design" aria-controls="Page_TabControl7_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl7_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::CheckBoxList
+(
+  'myCheckboxList', 
+  array
+  (
+    array('value' =&gt; '1', 'title' =&gt; 'First item'), 
+    array('value' =&gt; '2', 'title' =&gt; 'Second item'), 
+    array('value' =&gt; '3', 'title' =&gt; '...'), 
+    array('value' =&gt; '123', 'title' =&gt; 'etc.')
+  )
+)?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl7_HTML">						<pre><code class="html">&lt;input type="checkbox" name="myCheckboxList[]" id="myCheckboxList0" value="1" /&gt; 
+&lt;label for="myCheckboxList0"&gt;First item&lt;/label&gt;&lt;br /&gt;
+&lt;input type="checkbox" name="myCheckboxList[]" id="myCheckboxList1" value="2" /&gt; 
+&lt;label for="myCheckboxList1"&gt;Second item&lt;/label&gt;&lt;br /&gt;
+&lt;input type="checkbox" name="myCheckboxList[]" id="myCheckboxList2" value="3" /&gt; 
+&lt;label for="myCheckboxList2"&gt;...&lt;/label&gt;&lt;br /&gt;
+&lt;input type="checkbox" name="myCheckboxList[]" id="myCheckboxList3" value="123" /&gt; 
+&lt;label for="myCheckboxList3"&gt;etc.&lt;/label&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl7_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="checkbox" name="myCheckboxList[]" id="myCheckboxList0" value="1" /> <label for="myCheckboxList0">First item</label><br /><input type="checkbox" name="myCheckboxList[]" id="myCheckboxList1" value="2" /> <label for="myCheckboxList1">Second item</label><br /><input type="checkbox" name="myCheckboxList[]" id="myCheckboxList2" value="3" /> <label for="myCheckboxList2">...</label><br /><input type="checkbox" name="myCheckboxList[]" id="myCheckboxList3" value="123" /> <label for="myCheckboxList3">etc.</label>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="RadioButton">RadioButton</h3>
+			<p><strong>RadioButton</strong> very similar to the <strong><a href="#CheckBox">CheckBox</a></strong>.</p>
+			<p>Grouping <strong>RadioButton</strong> occurs named. For uniqueness, you can use an identifier that can be specified in the second parameter.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl8_PHP" aria-controls="Page_TabControl8_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl8_HTML" aria-controls="Page_TabControl8_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl8_Design" aria-controls="Page_TabControl8_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl8_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::RadioButton('gender', 'male')?&gt;
+&lt;?=Nemiro\UI\Html::Label('Male', 'male')?&gt;
+&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::RadioButton('gender', 'female')?&gt;
+&lt;?=Nemiro\UI\Html::Label('Female', 'female')?&gt;
+&lt;hr /&gt;
+&lt;?=Nemiro\UI\Html::RadioButton('country', 'Russia')?&gt;
+&lt;?=Nemiro\UI\Html::Label('Russia', 'Russia')?&gt;&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::RadioButton('country', 'China')?&gt;
+&lt;?=Nemiro\UI\Html::Label('China', 'China')?&gt;&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::RadioButton('country', 'USA')?&gt;
+&lt;?=Nemiro\UI\Html::Label('USA', 'USA')?&gt;&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::RadioButton('country', 'Germany')?&gt;
+&lt;?=Nemiro\UI\Html::Label('Germany', 'Germany')?&gt;&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::RadioButton('country', 'France')?&gt;
+&lt;?=Nemiro\UI\Html::Label('France', 'France')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl8_HTML">						<pre><code class="html">&lt;input type="radio" name="gender" id="male" value="true" /&gt; 
+&lt;label for="male"&gt;Male&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="gender" id="female" value="true" /&gt; 
+&lt;label for="female"&gt;Female&lt;/label&gt;
+&lt;hr /&gt;
+&lt;input type="radio" name="country" id="Russia" value="true" /&gt; 
+&lt;label for="Russia"&gt;Russia&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="country" id="China" value="true" /&gt; 
+&lt;label for="China"&gt;China&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="country" id="USA" value="true" /&gt; 
+&lt;label for="USA"&gt;USA&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="country" id="Germany" value="true" /&gt; 
+&lt;label for="Germany"&gt;Germany&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="country" id="France" value="true" /&gt; 
+&lt;label for="France"&gt;France&lt;/label&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl8_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="radio" name="gender" id="male" value="true" />								<label for="male">Male</label>								<br />
+								<input type="radio" name="gender" id="female" value="true" />								<label for="female">Female</label>								<hr />
+								<input type="radio" name="country" id="Russia" value="true" />								<label for="Russia">Russia</label><br />
+								<input type="radio" name="country" id="China" value="true" />								<label for="China">China</label><br />
+								<input type="radio" name="country" id="USA" value="true" />								<label for="USA">USA</label><br />
+								<input type="radio" name="country" id="Germany" value="true" />								<label for="Germany">Germany</label><br />
+								<input type="radio" name="country" id="France" value="true" />								<label for="France">France</label>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="RadioButtonList">RadioButtonList</h3>
+			<p>The principle of constructing lists <strong>RadioButton</strong> is no different from similar lists <strong>CheckBox</strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl9_PHP" aria-controls="Page_TabControl9_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl9_HTML" aria-controls="Page_TabControl9_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl9_Design" aria-controls="Page_TabControl9_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl9_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::RadioButtonList
+(
+  'myRadioList', 
+  array
+  (
+    array('value' =&gt; '1', 'title' =&gt; 'Meat'), 
+    array('value' =&gt; '2', 'title' =&gt; 'Fish'), 
+    array('value' =&gt; '3', 'title' =&gt; 'Green-fodder')
+  )
+)?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl9_HTML">						<pre><code class="html">&lt;input type="radio" name="myRadioList[]" id="myRadioList0" value="1" /&gt; 
+&lt;label for="myRadioList0"&gt;Meat&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="myRadioList[]" id="myRadioList1" value="2" /&gt; 
+&lt;label for="myRadioList1"&gt;Fish&lt;/label&gt;&lt;br /&gt;
+&lt;input type="radio" name="myRadioList[]" id="myRadioList2" value="3" /&gt; 
+&lt;label for="myRadioList2"&gt;Green-fodder&lt;/label&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl9_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="radio" name="myRadioList[]" id="myRadioList0" value="1" /> <label for="myRadioList0">Meat</label><br /><input type="radio" name="myRadioList[]" id="myRadioList1" value="2" /> <label for="myRadioList1">Fish</label><br /><input type="radio" name="myRadioList[]" id="myRadioList2" value="3" /> <label for="myRadioList2">Green-fodder</label>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="TextBox">TextBox</h3>
+			<p>Method <strong>TextBox</strong> allows to place a one-line text box. There are also methods for <strong>Password</strong> and <strong>Hidden</strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl10_PHP" aria-controls="Page_TabControl10_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl10_HTML" aria-controls="Page_TabControl10_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl10_Design" aria-controls="Page_TabControl10_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl10_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::TextBox('textbox1', 'Hello world!')?&gt;&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::Password('password1', '123123')?&gt;
+&lt;?=Nemiro\UI\Html::Hidden('hidden1', 'test')?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl10_HTML">						<pre><code class="html">&lt;input type="text" name="textbox1" id="textbox1" value="Hello world!" /&gt;&lt;br /&gt;
+&lt;input type="password" name="password1" id="password1" value="123123" /&gt;
+&lt;input type="hidden" name="hidden1" id="hidden1" value="test" /&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl10_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<input type="text" name="textbox1" id="textbox1" value="Hello world!" /><br />
+								<input type="password" name="password1" id="password1" value="123123" />								<input type="hidden" name="hidden1" id="hidden1" value="test" />							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="TextArea">TextArea</h3>
+			<p>To output multiline text fields can use the method <strong>TextArea</strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl11_PHP" aria-controls="Page_TabControl11_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl11_HTML" aria-controls="Page_TabControl11_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl11_Design" aria-controls="Page_TabControl11_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl11_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::TextArea('textarea1', NULL, NULL, array('placeholder' =&gt; 'Default area', 'cols' =&gt; 50))?&gt;&lt;br /&gt;
+&lt;?=Nemiro\UI\Html::TextArea('textarea2', NULL, 10, array('placeholder' =&gt; '10 rows area', 'cols' =&gt; 50))?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl11_HTML">						<pre><code class="html">&lt;textarea name="textarea1" id="textarea1" placeholder="Default area" cols="50"&gt;&lt;/textarea&gt;&lt;br /&gt;
+&lt;textarea name="textarea2" id="textarea2" rows="10" placeholder="10 rows area" cols="50"&gt;&lt;/textarea&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl11_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<textarea name="textarea1" id="textarea1"placeholder="Default area" cols="50" placeholder="Default area" cols="50"></textarea><br />
+								<textarea name="textarea2" id="textarea2" rows="10"placeholder="10 rows area" cols="50" placeholder="10 rows area" cols="50"></textarea>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="DropDownList">DropDownList</h3>
+			<p>The <strong>DropDownList</strong> method creates a drop-down list.</p>
+			<p>List elements can be specified in the text array. For more complex lists, can be used an associative array, like for <strong><a href="#CheckBoxList">CheckBoxList</a></strong> or <strong><a href="#RadioButtonList">RadioButtonList</a></strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl12_PHP" aria-controls="Page_TabControl12_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl12_HTML" aria-controls="Page_TabControl12_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl12_Design" aria-controls="Page_TabControl12_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl12_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::DropDownList
+(
+  'country', 
+  array
+  (
+    'Russia', 
+    'Belarus', 
+    'Kazakhstan', 
+    'China', 
+    'India', 
+    'Brazil', 
+    'Germany', 
+    'Italy', 
+    'France', 
+    'United Kingdom', 
+    'USA'
+  )
+)?&gt;
+
+&lt;?=Nemiro\UI\Html::DropDownList
+(
+  'color', 
+  array
+  (
+    array('value' =&gt; 'white', 'title' =&gt; 'White'), 
+    array('value' =&gt; 'blue', 'title' =&gt; 'Blue', 'selected' =&gt; true), 
+    array('value' =&gt; 'red', 'title' =&gt; 'Red')
+  )
+)?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl12_HTML">						<pre><code class="html">&lt;select name="country" id="country"&gt;
+  &lt;option &gt;Russia&lt;/option&gt;
+  &lt;option value="1"&gt;Belarus&lt;/option&gt;
+  &lt;option value="2"&gt;Kazakhstan&lt;/option&gt;
+  &lt;option value="3"&gt;China&lt;/option&gt;
+  &lt;option value="4"&gt;India&lt;/option&gt;
+  &lt;option value="5"&gt;Brazil&lt;/option&gt;
+  &lt;option value="6"&gt;Germany&lt;/option&gt;
+  &lt;option value="7"&gt;Italy&lt;/option&gt;
+  &lt;option value="8"&gt;France&lt;/option&gt;
+  &lt;option value="9"&gt;United Kingdom&lt;/option&gt;
+  &lt;option value="10"&gt;USA&lt;/option&gt;
+&lt;/select&gt;	
+
+&lt;select name="color" id="color"&gt;
+  &lt;option value="white"&gt;White&lt;/option&gt;
+  &lt;option value="blue" selected="selected"&gt;Blue&lt;/option&gt;
+  &lt;option value="red"&gt;Red&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl12_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<select name="country" id="country"><option >Russia</option><option value="1">Belarus</option><option value="2">Kazakhstan</option><option value="3">China</option><option value="4">India</option><option value="5">Brazil</option><option value="6">Germany</option><option value="7">Italy</option><option value="8">France</option><option value="9">United Kingdom</option><option value="10">USA</option></select>								<select name="color" id="color"><option value="white">White</option><option value="blue" selected="selected">Blue</option><option value="red">Red</option></select>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="ListBox">ListBox</h3>
+			<p>For multi-line listmay be used the <strong>ListBox</strong> method, which is completely the same as the <strong>DropDownList</strong>, but in addition accepts the number of rows displayed in the list.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl13_PHP" aria-controls="Page_TabControl13_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl13_HTML" aria-controls="Page_TabControl13_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl13_Design" aria-controls="Page_TabControl13_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl13_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::ListBox
+(
+  'color', 5,
+  array
+  (
+    array('value' =&gt; 'white', 'title' =&gt; 'White'), 
+    array('value' =&gt; 'blue', 'title' =&gt; 'Blue', 'selected' =&gt; true), 
+    array('value' =&gt; 'red', 'title' =&gt; 'Red')
+  )
+)?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl13_HTML">						<pre><code class="html">&lt;select name="color" id="color"&gt;
+  &lt;option value="white"&gt;White&lt;/option&gt;
+  &lt;option value="blue" selected="selected"&gt;Blue&lt;/option&gt;
+  &lt;option value="red"&gt;Red&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl13_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<select name="color" id="color" size="5"><option value="white">White</option><option value="blue" selected="selected">Blue</option><option value="red">Red</option></select>							</div>
+						</div>
+					</div>
+</div>
+			<h3 id="Pagination">Pagination</h3>
+			<p>With <strong>Pagination</strong> method can be create a list of pages.</p>
+			<p>To place a list of the pages must specify current page number and total number of records.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl14_PHP" aria-controls="Page_TabControl14_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl14_HTML" aria-controls="Page_TabControl14_HTML" role="tab" data-toggle="tab">HTML Output</a></li>
+	<li class=""><a href="#Page_TabControl14_Design" aria-controls="Page_TabControl14_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl14_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::Pagination($_GET['page'], 50)?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl14_HTML">						<pre><code class="html">&lt;ul class="pagination"&gt;
+  &lt;li class="active"&gt;&lt;a href="/elements.php?page=1"&gt;1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/elements.php?page=2"&gt;2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl14_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<ul class="pagination"><li class="active"><a href="elements.php.htm?page=1">1</a></li><li><a href="elements.php.htm?page=2">2</a></li></ul>							</div>
+						</div>
+					</div>
+</div>			<p>You can specify an address to be used in the construction of the <strong>URL</strong> of a particular page. If the <strong>URL</strong> is not specified, it will use the address of the current page.</p>
+			<p>By default, any additional parameters will automatically be removed from the <strong>URL</strong>. This is to prevent generation of incorrect references through the list of pages. You can provide a list of parameter names that are allowed to use in the <strong>URL</strong>.</p>
+			<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="#Page_TabControl15_PHP" aria-controls="Page_TabControl15_PHP" role="tab" data-toggle="tab">PHP</a></li>
+	<li class=""><a href="#Page_TabControl15_Design" aria-controls="Page_TabControl15_Design" role="tab" data-toggle="tab">Design</a></li>
+</ul>
+
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="Page_TabControl15_PHP">						<pre><code class="php">&lt;?=Nemiro\UI\Html::Pagination($_GET['page'], 500, 25, 10, NULL, 'page=', array('id'))?&gt;</code></pre>
+					</div>
+	<div role="tabpanel" class="tab-pane" id="Page_TabControl15_Design">						<div class="panel panel-default">
+							<div class="panel-body">
+								<ul class="pagination"><li class="active"><a href="elements.php.htm?page=1">1</a></li><li><a href="elements.php.htm?page=2">2</a></li><li><a href="elements.php.htm?page=3">3</a></li><li><a href="elements.php.htm?page=4">4</a></li><li><a href="elements.php.htm?page=5">5</a></li><li><a href="elements.php.htm?page=6">6</a></li><li><a href="elements.php.htm?page=7">7</a></li><li><a href="elements.php.htm?page=8">8</a></li><li><a href="elements.php.htm?page=9">9</a></li><li><a href="elements.php.htm?page=10">10</a></li><li><a href="elements.php.htm?page=11" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li></ul>							</div>
+						</div>
+					</div>
+</div>		
+				<!--//-->
+			</div>
+			<div class="col-md-2">
+				<!--block of content "RightMenu"-->
+							<ul id="rightMenu" class="nav nav-pills nav-stacked">
+				<li><a href="#">^ Top</a></li>
+				<li><a href="#Label">Label</a></li>
+				<li><a href="#CheckBox">CheckBox</a></li>
+				<li><a href="#CheckBoxList">CheckBoxList</a></li>
+				<li><a href="#RadioButton">RadioButton</a></li>
+				<li><a href="#RadioButtonList">RadioButtonList</a></li>
+				<li><a href="#TextBox">TextBox</a></li>
+				<li><a href="#TextArea">TextArea</a></li>
+				<li><a href="#DropDownList">DropDownList</a></li>
+				<li><a href="#ListBox">ListBox</a></li>
+				<li><a href="#Pagination">Pagination</a></li>
+			</ul>
+		
+				<!--//-->
+			</div>
+		</div>
+
+		<!--Footer control-->
+		<footer class="text-center small">
+	<hr />
+	<!--a class="github-button" href="https://github.com/alekseynemiro" data-style="mega" data-count-href="/alekseynemiro/followers" data-count-api="/users/alekseynemiro#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @alekseynemiro on GitHub">Follow @alekseynemiro</a-->
+	<a class="github-button" href="https://github.com/alekseynemiro/WebForms.PHP" data-icon="octicon-star" data-style="mega" data-count-href="/alekseynemiro/WebForms.PHP/stargazers" data-count-api="/repos/alekseynemiro/WebForms.PHP#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star alekseynemiro/WebForms.PHP on GitHub">Star</a>
+	<a class="github-button" href="https://github.com/alekseynemiro/WebForms.PHP/fork" data-icon="octicon-repo-forked" data-style="mega" data-count-href="/alekseynemiro/WebForms.PHP/network" data-count-api="/repos/alekseynemiro/WebForms.PHP#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork alekseynemiro/WebForms.PHP on GitHub">Fork</a>
+	<a class="github-button" href="https://github.com/alekseynemiro/WebForms.PHP/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download alekseynemiro/WebForms.PHP on GitHub">Download</a>
+	<br /><br />
+	Code licensed under <a rel="license" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>, documentation under <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a><br />
+	Copyright © Aleksey Nemiro, 2015. All rights reserved.
+	<br /><br />
+</footer>
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('pre code').each(function (i, block) {
+			hljs.highlightBlock(block);
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+		m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+	ga('create', 'UA-4793481-9', 'auto');
+	ga('send', 'pageview');
+
+</script>
+		<!--//-->
+
+		<script type="text/javascript">
+			$(document).scroll(function (e) {
+				var scrollTop = $(document).scrollTop();
+				if (scrollTop > $('#header').height()) {
+					$('#rightMenu').css('position', 'fixed');
+					$('#rightMenu').css('top', '20px');
+				} else {
+					$('#rightMenu').css('position', 'relative');
+				}
+			});
+		</script>
+	</body>
+</html>
