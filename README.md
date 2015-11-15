@@ -22,8 +22,8 @@ Code licensed under **Apache License Version 2.0**.
 * Classes for **MySql** and **PostgreSQL** ([optional](https://github.com/alekseynemiro/Nemiro.Data.PHP));
 * Server implementation console.
 
-### System Requirements
+![formula](http://alekseynemiro.github.io/WebForms.PHP/Content/images/formula.jpg)
+
+### Requirements
 
 * PHP 5 >= 5.3.
-
-![formula](http://alekseynemiro.github.io/WebForms.PHP/Content/images/formula.jpg)

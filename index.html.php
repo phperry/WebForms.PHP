@@ -93,40 +93,40 @@ Nemiro\App::Magic();
 			</div>
 
 			<div class="container">
-				<div class="row">
-					<div class="col-md-2 text-center">
+				<div class="row site-sections">
+					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center">
 						<a href="/templates.php${Lang}" class="btn btn-default">
-							<span class="glyphicon glyphicon-picture" style="font-size:10em"></span><br />
+							<span class="glyphicon glyphicon-picture"></span><br />
 							${Templates}
 						</a>
 					</div>
-					<div class="col-md-2 text-center">
+					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center">
 						<a href="/pages.php${Lang}" class="btn btn-default">
-							<span class="glyphicon glyphicon-file" style="font-size:10em"></span><br />
+							<span class="glyphicon glyphicon-file"></span><br />
 							${Pages}
 						</a>
 					</div>
-					<div class="col-md-2 text-center">
+					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center">
 						<a href="/controls.php${Lang}" class="btn btn-default">
-							<span class="glyphicon glyphicon-cog" style="font-size:10em"></span><br />
+							<span class="glyphicon glyphicon-cog"></span><br />
 							${UserControls}
 						</a>
 					</div>
-					<div class="col-md-2 text-center">
+					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center">
 						<a href="/elements.php${Lang}" class="btn btn-default">
-							<span class="glyphicon glyphicon-list-alt" style="font-size:10em"></span><br />
+							<span class="glyphicon glyphicon-list-alt"></span><br />
 							${HTMLControls}
 						</a>
 					</div>
-					<div class="col-md-2 text-center">
+					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center">
 						<a href="/localization.php${Lang}" class="btn btn-default">
-							<span class="glyphicon glyphicon-globe" style="font-size:10em"></span><br />
+							<span class="glyphicon glyphicon-globe"></span><br />
 							${Localization}
 						</a>
 					</div>
-					<div class="col-md-2 text-center">
+					<div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 text-center">
 						<a href="/debug.php${Lang}" class="btn btn-default">
-							<span class="glyphicon glyphicon-wrench" style="font-size:10em"></span><br />
+							<span class="glyphicon glyphicon-wrench"></span><br />
 							${Debug}
 						</a>
 					</div>

@@ -2,7 +2,7 @@
 	{ "Key": "PageTitle", "Value": "Отладка" },
 	{ "Key": "HeaderTitle", "Value": "Отладка" },
 	{ "Key": "HeaderDescription", "Value": "" },
-	{ "Key": "DebugText1", "Value": "Используйте серверную реализацию класса <strong>console</strong> для вывода в клиентскую консоль отладочную информацию, счетчиков времени и результатов тестирования." },
+	{ "Key": "DebugText1", "Value": "Используйте серверную реализацию класса <strong>console</strong> для вывода в клиентскую консоль отладочной информации, счетчиков времени и результатов тестирования." },
 	{ "Key": "DebugText2", "Value": "Обратите внимание, что класс <code>Console</code> работает только при включенном режиме отладки: <code>define('DEBUG_MODE', true);</code>." },
 	{ "Key": "DebugText3", "Value": "Нажмите в браузере комбинацию клавиш <strong>Ctrl + Shift + I</strong> (в <strong>IE</strong> клавишу <strong>F12</strong>), чтобы вызвать окно консоли." }
 ]
