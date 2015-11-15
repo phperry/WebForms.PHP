@@ -1,4 +1,4 @@
-### WebForms.PHP
+### WebForms.PHP [![Latest Stable Version](https://poser.pugx.org/aleksey.nemiro/webforms.php/v/stable)](https://packagist.org/packages/aleksey.nemiro/webforms.php) [![Total Downloads](https://poser.pugx.org/aleksey.nemiro/webforms.php/downloads)](https://packagist.org/packages/aleksey.nemiro/webforms.php) [![License](https://poser.pugx.org/aleksey.nemiro/webforms.php/license)](https://packagist.org/packages/aleksey.nemiro/webforms.php)
 
 This project is an attempt embodiment **ASP.NET WebForms** in **PHP**.
 
