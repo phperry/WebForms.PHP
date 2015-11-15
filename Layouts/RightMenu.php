@@ -21,12 +21,12 @@
 		<!--//-->
 
 		<div class="container">
-			<div class="col-md-10">
+			<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
 				<!--block of content "MainContent"-->
 				<php:MainContent/>
 				<!--//-->
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 				<!--block of content "RightMenu"-->
 				<php:RightMenu/>
 				<!--//-->
@@ -39,6 +39,11 @@
 
 		<script type="text/javascript">
 			$(document).scroll(function (e) {
+				if ($('.col-md-2').position().top > $('#header').height() + 100)
+				{
+					return;
+				}
+
 				var scrollTop = $(document).scrollTop();
 				if (scrollTop > $('#header').height()) {
 					$('#rightMenu').css('position', 'fixed');
