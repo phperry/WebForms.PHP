@@ -84,7 +84,7 @@ define('META_ROBOTS', 'ALL');
 &lt;/php:Content&gt;
 
 &lt;?php 
-require_once '~/global.php';
+require_once 'global.php';
 Nemiro\App::Magic();
 ?&gt;</code></pre>
 
